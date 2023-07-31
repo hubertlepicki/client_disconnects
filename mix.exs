@@ -36,7 +36,9 @@ defmodule ClientDisconnects.MixProject do
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:finch, "~> 0.16"},
+      {:bandit, "~> 1.0.0-pre.10"}
     ]
   end
 

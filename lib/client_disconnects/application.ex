@@ -13,9 +13,11 @@ defmodule ClientDisconnects.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: ClientDisconnects.PubSub},
       # Start the Endpoint (http/https)
-      ClientDisconnectsWeb.Endpoint
+      ClientDisconnectsWeb.Endpoint,
       # Start a worker by calling: ClientDisconnects.Worker.start_link(arg)
       # {ClientDisconnects.Worker, arg}
+      {Registry, name: ClientDisconnectsWeb.Registry, keys: :unique},
+      {Finch, name: HttpClient}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

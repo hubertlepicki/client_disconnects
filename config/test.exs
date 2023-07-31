@@ -5,7 +5,7 @@ import Config
 config :client_disconnects, ClientDisconnectsWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "n8m7TG/2lwAadRsv/FmPzBzV7syGNuu/G3oFZSCnsRyS9h7qd5IkBxrCFHjW0M6a",
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warning

@@ -7,5 +7,7 @@ defmodule ClientDisconnectsWeb.Router do
 
   scope "/api", ClientDisconnectsWeb do
     pipe_through :api
+
+    get "/infinity/:token", InfinityController, :sleep
   end
 end
