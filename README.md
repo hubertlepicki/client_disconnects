@@ -1,18 +1,38 @@
-# ClientDisconnects
+1. Clone this repository and run `mix deps.get` to install dependencies.
 
-To start your Phoenix server:
+2. Run the tests against Cowboy
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+```
+» mix test
+....
+Finished in 2.5 seconds (2.5s async, 0.00s sync)
+4 tests, 0 failures
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Randomized with seed 23470
+```
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+3. Run the tests against Bandit
 
-## Learn more
+```
+» SERVER=bandit mix test
+...
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+  1) test kills the request handler process, when the client closes connection (ClientDisconnectsWeb.DisconnectsTest)
+     test/client_disconnects_web/disconnects_test.exs:20
+     Expected false or nil, got true
+     code: refute Process.alive?(pid)
+     arguments:
+
+         # 1
+         #PID<0.693.0>
+
+     stacktrace:
+       test/client_disconnects_web/disconnects_test.exs:38: (test)
+
+
+Finished in 2.6 seconds (2.6s async, 0.00s sync)
+4 tests, 1 failure
+
+Randomized with seed 621033
+```
+
